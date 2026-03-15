@@ -1,0 +1,159 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+#: Fonts {{{
+
+#: kitty has very powerful font management. You can configure
+#: individual font faces and even specify special fonts for particular
+#: characters.
+
+ font_family     JetBrains Mono Nerd Font 
+# bold_font        auto
+# italic_font      auto
+# bold_italic_font auto
+
+#: You can specify different fonts for the bold/italic/bold-italic
+#: variants. The easiest way to select fonts is to run the `kitten
+#: choose-fonts` command which will present a nice UI for you to
+#: select the fonts you want with previews and support for selecting
+#: variable fonts and font features. If you want to learn to select
+#: fonts manually, read the font specification syntax
+#: <https://sw.kovidgoyal.net/kitty/kittens/choose-fonts/#font-spec-
+#: syntax>.
+
+ font_size 12.0
+
+#: Font size (in pts).
+
+# force_ltr no
+
+#: kitty does not support BIDI (bidirectional text), however, for RTL
+#: scripts, words are automatically displayed in RTL. That is to say,
+#: in an RTL script, the words "HELLO WORLD" display in kitty as
+#: "WORLD HELLO", and if you try to select a substring of an RTL-
+#: shaped string, you will get the character that would be there had
+#: the string been LTR. For example, assuming the Hebrew word ירושלים,
+#: selecting the character that on the screen appears to be ם actually
+#: writes into the selection buffer the character י. kitty's default
+#: behavior is useful in conjunction with a filter to reverse the word
+#: order, however, if you wish to manipulate RTL glyphs, it can be
+#: very challenging to work with, so this option is provided to turn
+#: it off. Furthermore, this option can be used with the command line
+#: program GNU FriBidi <https://github.com/fribidi/fribidi#executable>
+#: to get BIDI support, because it will force kitty to always treat
+#: the text as LTR, which FriBidi expects for terminals.
+
+# symbol_map
+
+#: E.g. symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols
+
+#: Map the specified Unicode codepoints to a particular font. Useful
+#: if you need special rendering for some symbols, such as for
+#: Powerline. Avoids the need for patched fonts. Each Unicode code
+#: point is specified in the form `U+<code point in hexadecimal>`. You
+#: can specify multiple code points, separated by commas and ranges
+#: separated by hyphens. This option can be specified multiple times.
+#: The syntax is::
+
+#:     symbol_map codepoints Font Family Name
+
+# narrow_symbols
+
+#: E.g. narrow_symbols U+E0A0-U+E0A3,U+E0C0-U+E0C7 1
+
+#: Usually, for Private Use Unicode characters and some symbol/dingbat
+#: characters, if the character is followed by one or more spaces,
+#: kitty will use those extra cells to render the character larger, if
+#: the character in the font has a wide aspect ratio. Using this
+#: option you can force kitty to restrict the specified code points to
+#: render in the specified number of cells (defaulting to one cell).
+#: This option can be specified multiple times. The syntax is::
+
+#:     narrow_symbols codepoints [optionally the number of cells]
+
+# disable_ligatures never
+
+#: Choose how you want to handle multi-character ligatures. The
+#: default is to always render them. You can tell kitty to not render
+#: them when the cursor is over them by using cursor to make editing
+#: easier, or have kitty never render them at all by using always, if
+#: you don't like them. The ligature strategy can be set per-window
+#: either using the kitty remote control facility or by defining
+#: shortcuts for it in kitty.conf, for example::
+
+#:     map alt+1 disable_ligatures_in active always
+#:     map alt+2 disable_ligatures_in all never
+#:     map alt+3 disable_ligatures_in tab cursor
+
+enable_audio_bell no
+window_alert_on_bell no
+
+#Fonts
+#font_family FiraCode Nerd Font
+font_family JetBrains Mono
+bold_font auto
+italic_font auto
+bold_italic_font auto
+font_size 12
+
+# url
+detect_urls yes
+# url_color #ffff00
+url_style straight
+open_url_with default
+
+# Theme
+# background #1b1b27
+# selection_background #ffffff
+background_opacity 1.0
+
+# dynamic_background_opacity yes
+# background_blur 1
+# active_border_color #7AA2F7
+# inactive_border_color #000000
+
+# window padding
+window_margin_width 2
+
+# tabs
+tab_bar_edge top
+tab_bar_margin_width 1.0
+tab_bar_margin_height 1.0 0.5
+tab_bar_style powerline
+tab_powerline_style slanted
+tab_title_template "{index}"
+
+# styling tabs
+# active_tab_foreground #0da38a
+# active_tab_background #1d202f
+active_tab_font_style bold-italic
+# inactive_tab_foreground #ffffff
+# inactive_tab_background #292945
+inactive_tab_font_style normal
+
+# clipboard
+map ctrl+shift+c copy_to_clipboard
+map ctrl+shift+v paste_from_clipboard
+
+# keymaps
+map ctrl+shift+i next_layout
+map ctrl+enter new_window
+map ctrl+shift+l next_window
+map ctrl+shift+h previous_window
+
+map ctrl+t new_tab
+map ctrl+shift+w close_tab
+
+map ctrl+shift+r load_config_file
+
+
+
+# BEGIN_KITTY_THEME
+# Bliss
+include current-theme.conf
+# END_KITTY_THEME
+
+# Decay
+# include decay.conf
+
+include oxocarbon.conf
+
