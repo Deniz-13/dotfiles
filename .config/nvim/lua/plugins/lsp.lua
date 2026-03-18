@@ -90,7 +90,6 @@ return {
 				"shellcheck",
 				"ruff", -- Python formatter
 				"php-cs-fixer", -- PHP formatter
-				"black", -- Alternatif Python formatter
 			},
 			auto_update = true,
 			run_on_start = true,
