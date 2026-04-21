@@ -19,6 +19,12 @@ autoload -Uz _zinit
 ((${+_comps})) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
+# Edit commands inside $EDITOR
+# Ctrl-X and Ctrl-E activates.
+autoload -Uz edit-command-line
+zle -N edit-command-line
+binkey '^X^E' edit-command-line
+
 #Plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
