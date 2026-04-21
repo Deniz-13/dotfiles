@@ -23,7 +23,7 @@ autoload -Uz _zinit
 # Ctrl-X and Ctrl-E activates.
 autoload -Uz edit-command-line
 zle -N edit-command-line
-binkey '^X^E' edit-command-line
+bindkey '^X^E' edit-command-line
 
 #Plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -41,6 +41,9 @@ zinit snippet OMZP::command-not-found
 
 #Load completions
 autoload -Uz compinit && compinit
+
+#Zoxide
+eval "$(zoxide init zsh)"
 
 #powerlevel10k
 zinit ice depth=1
